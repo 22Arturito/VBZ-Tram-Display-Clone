@@ -11,6 +11,9 @@
 # VS Code
 .vscode/
 
+# Claude Code
+.claude/
+
 # Build artifacts
 build/
 dist/

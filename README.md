@@ -28,6 +28,7 @@ A homemade replica of the Zürich VBZ tram departure board — shows real-time d
 - [Night Mode](#night-mode)
 - [Troubleshooting](#troubleshooting)
 - [Project Structure](#project-structure)
+- [Contributors](#contributors)
 - [Credits](#credits)
 
 ---
@@ -288,8 +289,16 @@ generate_texture.py Generates a P3 LED texture for renders
 
 ---
 
+## Contributors
+
+**Artur Melnikov** — firmware, PCB, project concept
+
+**Miroslav Melnikov** — CAD design for the enclosure, display testing, and a genuine interest in the project that kept it moving
+
+**Bhavya Sharma** — helped with soldering and assembling the physical display
+
+---
+
 ## Credits
 
 Built on top of [sschueller's vbz-fahrgastinformation](https://github.com/sschueller/vbz-fahrgastinformation), used under MIT license. The original concept, font, and data pipeline approach all originate from his work — this project wouldn't exist without it.
-
-A big thank you to my little brother **Miroslav Melnikov** for helping with display testing, designing the CAD files for the enclosure, and for his enthusiasm and support throughout the whole project.

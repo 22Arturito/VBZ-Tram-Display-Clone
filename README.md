@@ -7,7 +7,7 @@ A homemade replica of the Zürich VBZ tram departure board — shows real-time d
 ![Framework](https://img.shields.io/badge/framework-PlatformIO-orange)
 ![Data](https://img.shields.io/badge/data-opentransportdata.swiss-red)
 
-![VBZ Tram Display](photos/Renders/Dark%20Hero.png)
+![VBZ Tram Display](photos/Renders/HEROFIRST.png)
 
 > Based on the original work by [sschueller](https://github.com/sschueller/vbz-fahrgastinformation).
 
@@ -48,8 +48,8 @@ A homemade replica of the Zürich VBZ tram departure board — shows real-time d
 
 | | |
 |---|---|
-| ![Hero](photos/Renders/Dark%20Hero.png) | ![3/4](photos/Renders/Dark%203_4.png) |
-| ![Closeup](photos/Renders/Dark%20Closeup.png) | ![Back](photos/Renders/Dark%20Back.png) |
+| ![Hero](photos/Renders/HEROFIRST.png) | ![Front](photos/Renders/FRONTALFIRST.png) |
+| ![Top Left](photos/Renders/TOPLEFTFIRST.png) | ![Bottom Right](photos/Renders/BOTTOMRIGHTFIRST.png) |
 
 ---
 

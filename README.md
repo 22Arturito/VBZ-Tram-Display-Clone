@@ -34,19 +34,19 @@ A homemade replica of the Zürich VBZ tram departure board — shows real-time d
 
 ## Background
 
-This project started with [sschueller's vbz-fahrgastinformation](https://github.com/sschueller/vbz-fahrgastinformation) — a faithful recreation of the actual VBZ passenger information system, complete with the real font, real line colors, and real-time data from the Swiss open transport API. His work proved the concept and laid the technical foundation: the font rendering approach, the HUB75 panel setup, and the data pipeline all trace back to his ideas.
+This project started with [sschueller's vbz-fahrgastinformation](https://github.com/sschueller/vbz-fahrgastinformation) — a faithful recreation of the actual VBZ passenger information system, complete with the real font, real line colors, and real-time data from the Swiss open transport API. His work is the foundation this project is built on. The firmware, the font and bitmap data, the HUB75 panel approach, and the data pipeline all originate from his code. The additions I made — web UI, clock screensaver with weather, night mode, OTA updates — are built on top of that base. Big credit to him especially for the bitmap font work, which is the most distinctive visual part of the whole thing.
 
-My goal was different. I wanted something you could actually build at home without a lot of prior experience — a version that is cheaper, uses off-the-shelf parts, and comes together without fighting obscure hardware. A few things I changed or added:
+His original build used a single 64×128 panel. I switched to three chained 64×64 panels, which is actually close to what his newer products do and gives a bit more flexibility in terms of sourcing. The case design is heavily inspired by his finished [StationDisplay](https://github.com/sschueller/vbz-fahrgastinformation) product — in many ways I wanted exactly what he built, just as a DIY version you can put together yourself at home. The CHF 80–120 build cost is cheaper compared to buying his finished unit, not compared to DIY in general — his open-source version is already very buildable.
 
-- **Custom PCB** instead of a rats-nest of jumper wires — makes assembly clean and repeatable
-- **Laser-cut MDF and acrylic enclosure** — gives it a finished look that doesn't feel like a prototype
-- **Web UI** for configuration instead of reflashing to change stations
-- **Clock screensaver** with live weather and rain forecast
+A few things I contributed on top of his work:
+
+- **Three 64×64 panels** chained to 192×64px total, instead of a single 64×128 panel
+- **Custom PCB** for a clean, repeatable build
+- **Laser-cut MDF and acrylic enclosure** closely inspired by his commercial StationDisplay
+- **Web UI** for live configuration and station search
+- **Clock screensaver** with date, live weather, UV index, and rain forecast
 - **Night mode** with automatic scheduling and manual override
-- **OTA updates** so you never need to plug it in again after the first flash
-- **Cheaper** — the whole build comes in around CHF 80–120 using AliExpress panels and JLCPCB, compared to buying a finished unit
-
-The firmware was largely rewritten but the spirit of the project — and the font — come from sschueller's original work. Credit where it's due.
+- **OTA firmware updates** over WiFi
 
 ---
 

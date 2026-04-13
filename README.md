@@ -6,16 +6,16 @@ A homemade replica of the Zürich VBZ tram departure board. Shows real-time depa
 
 ---
 
-![VBZ Tram Display](photos/Renders/Nice.png)
+![VBZ Tram Display](photos/Renders/Dark%20Hero.png)
 
 ## Photos
 
 ### Renders
 
-![Nice](photos/Renders/Nice.png)
 ![Hero](photos/Renders/Dark%20Hero.png)
 ![3/4 View](photos/Renders/Dark%203_4.png)
 ![Close-up](photos/Renders/Dark%20Closeup.png)
+![Back](photos/Renders/Dark%20Back.png)
 
 ---
 

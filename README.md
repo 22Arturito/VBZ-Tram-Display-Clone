@@ -17,6 +17,7 @@ A homemade replica of the Zürich VBZ tram departure board — shows real-time d
 
 - [Features](#features)
 - [Gallery](#gallery)
+- [Build Your Own](#build-your-own)
 - [Hardware](#hardware)
 - [Wiring](#wiring)
 - [Software Setup](#software-setup)
@@ -50,6 +51,40 @@ A homemade replica of the Zürich VBZ tram departure board — shows real-time d
 |---|---|
 | ![Hero](photos/Renders/HEROFIRST.png) | ![Front](photos/Renders/FRONTALFIRST.png) |
 | ![Top Left](photos/Renders/TOPLEFTFIRST.png) | ![Bottom Right](photos/Renders/BOTTOMRIGHTFIRST.png) |
+
+---
+
+## Build Your Own
+
+Total cost is roughly **CHF 80–120** depending on where you source parts.
+
+| Component | Source | Approx. Cost |
+|---|---|---|
+| 3× P3 64×64 HUB75E LED panels | AliExpress | CHF 45–60 |
+| Freenove ESP32-S3 WROOM | AliExpress / Amazon | CHF 12–18 |
+| Custom PCB (5 pcs min) | JLCPCB / PCBWay | CHF 8–12 |
+| PCB components (caps, resistors, connectors) | LCSC / Mouser | CHF 5–10 |
+| 5V 3A power supply | AliExpress | CHF 5–8 |
+| 3× HUB75E ribbon cables (2×8 IDC) | AliExpress | CHF 4–6 |
+| Acrylic sheet 600×200mm 5mm | Local laser shop | CHF 5–10 |
+| MDF sheet 600×200mm 5mm | Local laser shop | CHF 3–5 |
+| M4 hardware (bolts + nuts) | Hardware store | CHF 3–5 |
+
+> Panels are the biggest variable — prices fluctuate on AliExpress. Search **"64x64 P3 HUB75E RGB LED matrix"**.
+
+### Steps
+
+1. **Order parts** — use the BOM in `hardware/pcb/` for exact PCB components. Order panels, ESP32, and cables from AliExpress at the same time to save on shipping.
+
+2. **Get the PCB made** — upload the Gerber zip from `hardware/pcb/` to [JLCPCB](https://jlcpcb.com) or [PCBWay](https://pcbway.com). Standard 2-layer, 1.6mm, any colour. Minimum order is 5 pcs for ~$2.
+
+3. **Laser-cut the frame** — send the DXF files in `hardware/3d/` to a local laser cutting service or makerspace. 5mm MDF for the frame (paint it black), 5mm clear acrylic for the front panel.
+
+4. **Solder the PCB** — solder all SMD components first, then connectors. The schematic and assembly drawing are in `hardware/pcb/`.
+
+5. **Assemble** — chain the three LED panels together with ribbon cables. Connect power wires to each panel. Mount panels into the MDF frame using M4 bolts and nuts, then attach the acrylic front.
+
+6. **Flash and configure** — follow [Software Setup](#software-setup) below. First flash is via USB; all updates after that are OTA over WiFi.
 
 ---
 

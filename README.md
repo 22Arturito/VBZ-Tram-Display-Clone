@@ -36,12 +36,20 @@ A homemade replica of the Zürich VBZ tram departure board. Shows real-time depa
 
 ## Hardware
 
-| Component | Details |
-|---|---|
-| Microcontroller | Freenove ESP32-S3 WROOM (8MB Flash / 8MB PSRAM) |
-| Display | 3× 64×64px P3 HUB75E LED matrix panels, chained (192×64px total) |
-| PCB | Custom PCB (files in `hardware/pcb/`) |
-| Enclosure | Laser-cut MDF frame painted black, laser-cut acrylic front panel — wall mount or desk stand (files in `hardware/3d/`) |
+| Component | Qty | Details |
+|---|---|---|
+| LED Matrix Panels | 3 | 64×64px P3 HUB75E, chained (192×64px total) |
+| Microcontroller | 1 | Freenove ESP32-S3 WROOM (8MB Flash / 8MB PSRAM) |
+| Custom PCB | 1 | See `hardware/pcb/` — PCB components listed separately |
+| Power Supply | 1 | 5V 3A DC barrel jack |
+| HUB75E Ribbon Cables | 3 | 2×8 IDC, panel-to-panel and panel-to-PCB |
+| JST Power Wires | 3 | Custom length, custom terminated |
+| Acrylic sheet | 1 | 600×200mm, 5mm, laser-cut front panel |
+| MDF sheet | 1 | 600×200mm, 5mm, laser-cut frame, painted black |
+| M4 bolt 60mm | 6 | Frame assembly |
+| M4 bolt 40mm | 12 | Frame assembly |
+| M4 knurl nut | 9 | Frame assembly |
+| M4 square nut | 12 | Frame assembly |
 
 ---
 

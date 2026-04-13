@@ -161,6 +161,8 @@ OTA password: `vbz1234` (configurable in `main.cpp`).
 
 Open `http://<IP>/config` in any browser on the same network.
 
+![Web Interface](photos/Renders/WebsiteScreenshot.png)
+
 | Button | Action |
 |---|---|
 | Switch Station | Toggle between Station 1 and Station 2 |

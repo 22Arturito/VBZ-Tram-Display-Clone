@@ -291,9 +291,9 @@ generate_texture.py Generates a P3 LED texture for renders
 
 ## Contributors
 
-**Artur Melnikov** — firmware, PCB, project concept
+**Artur Melnikov** — firmware, PCB, enclosure design, renders
 
-**Miroslav Melnikov** — CAD design for the enclosure, display testing, and a genuine interest in the project that kept it moving
+**Miroslav Melnikov** — recreated the LED display panels in CAD, display testing, and a genuine interest in the project that kept it moving
 
 **Bhavya Sharma** — helped with soldering and assembling the physical display
 

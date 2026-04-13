@@ -291,3 +291,5 @@ generate_texture.py Generates a P3 LED texture for renders
 ## Credits
 
 Built on top of [sschueller's vbz-fahrgastinformation](https://github.com/sschueller/vbz-fahrgastinformation), used under MIT license. The original concept, font, and data pipeline approach all originate from his work — this project wouldn't exist without it.
+
+A big thank you to my little brother **Miroslav Melnikov** for helping with display testing, designing the CAD files for the enclosure, and for his enthusiasm and support throughout the whole project.

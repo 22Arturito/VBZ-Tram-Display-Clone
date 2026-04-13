@@ -161,7 +161,7 @@ OTA password: `vbz1234` (configurable in `main.cpp`).
 
 Open `http://<IP>/config` in any browser on the same network.
 
-![Web Interface](photos/Renders/WebsiteScreenshot.png)
+<img src="photos/Renders/WebsiteScreenshot.png" width="300">
 
 | Button | Action |
 |---|---|

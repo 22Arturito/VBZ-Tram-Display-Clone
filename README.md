@@ -15,6 +15,7 @@ A homemade replica of the Zürich VBZ tram departure board — shows real-time d
 
 ## Table of Contents
 
+- [Background](#background)
 - [Features](#features)
 - [Gallery](#gallery)
 - [Build Your Own](#build-your-own)
@@ -28,6 +29,24 @@ A homemade replica of the Zürich VBZ tram departure board — shows real-time d
 - [Troubleshooting](#troubleshooting)
 - [Project Structure](#project-structure)
 - [Credits](#credits)
+
+---
+
+## Background
+
+This project started with [sschueller's vbz-fahrgastinformation](https://github.com/sschueller/vbz-fahrgastinformation) — a faithful recreation of the actual VBZ passenger information system, complete with the real font, real line colors, and real-time data from the Swiss open transport API. His work proved the concept and laid the technical foundation: the font rendering approach, the HUB75 panel setup, and the data pipeline all trace back to his ideas.
+
+My goal was different. I wanted something you could actually build at home without a lot of prior experience — a version that is cheaper, uses off-the-shelf parts, and comes together without fighting obscure hardware. A few things I changed or added:
+
+- **Custom PCB** instead of a rats-nest of jumper wires — makes assembly clean and repeatable
+- **Laser-cut MDF and acrylic enclosure** — gives it a finished look that doesn't feel like a prototype
+- **Web UI** for configuration instead of reflashing to change stations
+- **Clock screensaver** with live weather and rain forecast
+- **Night mode** with automatic scheduling and manual override
+- **OTA updates** so you never need to plug it in again after the first flash
+- **Cheaper** — the whole build comes in around CHF 80–120 using AliExpress panels and JLCPCB, compared to buying a finished unit
+
+The firmware was largely rewritten but the spirit of the project — and the font — come from sschueller's original work. Credit where it's due.
 
 ---
 
@@ -267,4 +286,4 @@ generate_texture.py Generates a P3 LED texture for renders
 
 ## Credits
 
-Based on the original project by [sschueller](https://github.com/sschueller/vbz-fahrgastinformation), used under MIT license.
+Built on top of [sschueller's vbz-fahrgastinformation](https://github.com/sschueller/vbz-fahrgastinformation), used under MIT license. The original concept, font, and data pipeline approach all originate from his work — this project wouldn't exist without it.

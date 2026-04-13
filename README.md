@@ -1,36 +1,55 @@
 # VBZ Tram Display Clone
 
-A homemade replica of the Zürich VBZ tram departure board. Shows real-time departure data for any tram, bus, or train station in Switzerland on three chained HUB75 LED matrix panels.
+A homemade replica of the Zürich VBZ tram departure board — shows real-time departure data for any tram, bus, or train station in Switzerland on three chained HUB75 LED matrix panels.
+
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Platform](https://img.shields.io/badge/platform-ESP32--S3-brightgreen)
+![Framework](https://img.shields.io/badge/framework-PlatformIO-orange)
+![Data](https://img.shields.io/badge/data-opentransportdata.swiss-red)
+
+![VBZ Tram Display](photos/Renders/Dark%20Hero.png)
 
 > Based on the original work by [sschueller](https://github.com/sschueller/vbz-fahrgastinformation).
 
 ---
 
-![VBZ Tram Display](photos/Renders/Dark%20Hero.png)
+## Table of Contents
 
-## Photos
-
-### Renders
-
-![Hero](photos/Renders/Dark%20Hero.png)
-![3/4 View](photos/Renders/Dark%203_4.png)
-![Close-up](photos/Renders/Dark%20Closeup.png)
-![Back](photos/Renders/Dark%20Back.png)
+- [Features](#features)
+- [Gallery](#gallery)
+- [Hardware](#hardware)
+- [Wiring](#wiring)
+- [Software Setup](#software-setup)
+- [OTA Updates](#ota-updates)
+- [Web Interface](#web-interface)
+- [Physical Button](#physical-button)
+- [Night Mode](#night-mode)
+- [Project Structure](#project-structure)
+- [Credits](#credits)
 
 ---
 
 ## Features
 
-- Live departure data from [opentransportdata.swiss](https://opentransportdata.swiss) (falls back to scheduled if live unavailable)
+- Live departure data from [opentransportdata.swiss](https://opentransportdata.swiss), falls back to scheduled if unavailable
 - Two configurable stations, switchable via button or web interface
-- Direction filter: both / outbound / inbound
+- Direction filter: both / outbound / inbound, persisted to flash
 - VBZ tram line colors for all known Zürich lines
 - Accessibility indicator for low-floor vehicles
-- Live/scheduled marker, late indicator
+- Live vs. scheduled marker, late departure indicator
 - Night mode: amber colors, low brightness, auto-scheduled (22:00–06:00) with manual override
-- Clock screensaver with date and live weather via [Open-Meteo](https://open-meteo.com) (no API key needed)
+- Clock screensaver with date and live weather via [Open-Meteo](https://open-meteo.com) — no API key needed
 - Web configuration UI with live departure view and station search
 - OTA firmware updates over WiFi
+
+---
+
+## Gallery
+
+| | |
+|---|---|
+| ![Hero](photos/Renders/Dark%20Hero.png) | ![3/4](photos/Renders/Dark%203_4.png) |
+| ![Closeup](photos/Renders/Dark%20Closeup.png) | ![Back](photos/Renders/Dark%20Back.png) |
 
 ---
 
@@ -51,13 +70,13 @@ A homemade replica of the Zürich VBZ tram departure board. Shows real-time depa
 | M4 knurl nut | 9 | Frame assembly |
 | M4 square nut | 12 | Frame assembly |
 
+Laser-cut files are in `hardware/3d/`. PCB schematics and Gerber files are in `hardware/pcb/`.
+
 ---
 
 ## Wiring
 
-The custom PCB handles the connection between the ESP32-S3 and the HUB75E panels. See `hardware/pcb/` for schematics and Gerber files.
-
-Basic pin mapping (HUB75E → ESP32-S3):
+The custom PCB handles the connection between the ESP32-S3 and the HUB75E panels.
 
 | HUB75E Pin | ESP32-S3 GPIO |
 |---|---|
@@ -167,22 +186,23 @@ Station search lets you look up a stop by name and fills the BPUIC ID automatica
 
 ## Night Mode
 
-Activates automatically between configured hours (default 22:00–06:00). Colors switch to amber and brightness drops to ~10%. Can be overridden manually via button or web interface.
+Activates automatically between configured hours (default 22:00–06:00). All colors switch to amber and brightness drops to ~10%. Can be overridden manually via button or web interface — override clears at the next scheduled boundary.
 
 ---
 
 ## Project Structure
 
 ```
-firmware/         ESP32 PlatformIO project
+firmware/           ESP32 PlatformIO project
 hardware/
-  pcb/            Schematic and Gerber files
-  3d/             Laser-cut enclosure files
-photos/           Build photos
+  pcb/              Schematic, Gerber files, BOM
+  3d/               Laser-cut DXF files for MDF frame and acrylic panel
+photos/             Build photos and renders
+generate_texture.py Generates a P3 LED texture for renders
 ```
 
 ---
 
 ## Credits
 
-Based on the original project by [sschueller](https://github.com/sschueller/vbz-fahrgastinformation).
+Based on the original project by [sschueller](https://github.com/sschueller/vbz-fahrgastinformation), used under MIT license.

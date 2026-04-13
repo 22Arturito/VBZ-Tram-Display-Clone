@@ -25,6 +25,7 @@ A homemade replica of the Zürich VBZ tram departure board — shows real-time d
 - [Web Interface](#web-interface)
 - [Physical Button](#physical-button)
 - [Night Mode](#night-mode)
+- [Troubleshooting](#troubleshooting)
 - [Project Structure](#project-structure)
 - [Credits](#credits)
 
@@ -106,6 +107,8 @@ Total cost is roughly **CHF 80–120** depending on where you source parts.
 | M4 square nut | 12 | Frame assembly |
 
 Laser-cut files are in `hardware/3d/`. PCB schematics and Gerber files are in `hardware/pcb/`.
+
+<img src="photos/Renders/PCB.png" width="280">
 
 ---
 
@@ -224,6 +227,28 @@ Station search lets you look up a stop by name and fills the BPUIC ID automatica
 ## Night Mode
 
 Activates automatically between configured hours (default 22:00–06:00). All colors switch to amber and brightness drops to ~10%. Can be overridden manually via button or web interface — override clears at the next scheduled boundary.
+
+---
+
+## Troubleshooting
+
+**Display shows garbage / random pixels**
+Check ribbon cable orientation — HUB75E cables are not keyed. Try flipping the connector on the first panel.
+
+**Only the first panel lights up**
+The chain order matters. Panel 1 connects to the PCB, panel 2 connects to panel 1's output, panel 3 to panel 2's output.
+
+**No departures shown, just dashes**
+Your API key is missing or wrong. Double-check `Config.h` and make sure you have a valid key from [opentransportdata.swiss](https://opentransportdata.swiss).
+
+**OTA upload fails**
+Make sure the device is on the same network and the IP in `platformio.ini` is correct. The OTA password is `vbz1234`.
+
+**Display flickers or shows noise**
+Lower `BRIGHTNESS_FIXED` in `Config.h`. Some panels need `latch_blanking` tuned — see the comments in `Display.cpp`.
+
+**WiFi captive portal doesn't open**
+Navigate manually to `192.168.4.1` in your browser after connecting to the `vbz-anzeige` hotspot.
 
 ---
 

@@ -1,6 +1,6 @@
 # VBZ Tram Display Clone
 
-A homemade replica of the Zürich VBZ tram departure board — shows real-time departure data for any tram, bus, or train station in Switzerland on three chained HUB75 LED matrix panels.
+A homemade replica of the Zürich VBZ tram departure board. Shows real-time departure data for any tram, bus, or train station in Switzerland on three chained HUB75 LED matrix panels.
 
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Platform](https://img.shields.io/badge/platform-ESP32--S3-brightgreen)
@@ -35,13 +35,13 @@ A homemade replica of the Zürich VBZ tram departure board — shows real-time d
 
 ## Background
 
-This project started with [sschueller's vbz-fahrgastinformation](https://github.com/sschueller/vbz-fahrgastinformation) — a faithful recreation of the actual VBZ passenger information system, complete with the real font, real line colors, and real-time data from the Swiss open transport API. His work is the foundation this project is built on. The firmware, the font and bitmap data, the HUB75 panel approach, and the data pipeline all originate from his code. The additions I made — web UI, clock screensaver with weather, night mode, OTA updates — are built on top of that base. Big credit to him especially for the bitmap font work, which is the most distinctive visual part of the whole thing.
+This project started with [sschueller's vbz-fahrgastinformation](https://github.com/sschueller/vbz-fahrgastinformation), a faithful recreation of the actual VBZ passenger information system, complete with the real font, real line colors, and real-time data from the Swiss open transport API. His work is the foundation this project is built on. The firmware, the font and bitmap data, the HUB75 panel approach, and the data pipeline all originate from his code. The additions I made (web UI, clock screensaver with weather, night mode, OTA updates) are built on top of that base. Big credit to him especially for the bitmap font work, which is the most distinctive visual part of the whole thing.
 
-His original build used a single 64×128 panel. I switched to three chained 64×64 panels, which is close to what his newer products do and gives more flexibility when sourcing. The case design is heavily inspired by his finished [StationDisplay](https://www.stationdisplay.com) product — in many ways I wanted exactly what he sells, just as something I could build myself.
+His original build used a single 64×128 panel. I switched to three chained 64×64 panels, which is close to what his newer products do and gives more flexibility when sourcing. The case design is heavily inspired by his finished [StationDisplay](https://www.stationdisplay.com) product. In many ways I wanted exactly what he sells, just as something I could build myself.
 
-If you don't have the time or interest to build your own, I'd strongly recommend just buying from him directly at [stationdisplay.com](https://www.stationdisplay.com). It's an extraordinary Swiss-made product with proper support behind it — you get something polished and ready to go.
+If you don't have the time or interest to build your own, I'd strongly recommend just buying from him directly at [stationdisplay.com](https://www.stationdisplay.com). It's an extraordinary Swiss-made product with proper support behind it.
 
-This DIY version comes in at around CHF 80–120, which makes it accessible to a lot more people. That said, it is a DIY build — the finish, the support, and the overall quality of the bought version are on a different level. You get what you pay for.
+This DIY version comes in at around CHF 80–120, which makes it accessible to a lot more people. That said, it is a DIY build. The finish, the support, and the overall quality of the bought version are on a different level. You get what you pay for.
 
 A few things I contributed on top of his work:
 
@@ -63,8 +63,8 @@ A few things I contributed on top of his work:
 - VBZ tram line colors for all known Zürich lines
 - Accessibility indicator for low-floor vehicles
 - Live vs. scheduled marker, late departure indicator
-- Night mode: amber colors, low brightness, auto-scheduled (22:00–06:00) with manual override
-- Clock screensaver with date and live weather via [Open-Meteo](https://open-meteo.com) — no API key needed
+- Night mode with amber colors and low brightness, auto-scheduled (22:00–06:00) with manual override
+- Clock screensaver with date and live weather via [Open-Meteo](https://open-meteo.com), no API key needed
 - Web configuration UI with live departure view and station search
 - OTA firmware updates over WiFi
 
@@ -95,21 +95,21 @@ Total cost is roughly **CHF 80–120** depending on where you source parts.
 | MDF sheet 600×200mm 5mm | Local laser shop | CHF 3–5 |
 | M4 hardware (bolts + nuts) | Hardware store | CHF 3–5 |
 
-> Panels are the biggest variable — prices fluctuate on AliExpress. Search **"64x64 P3 HUB75E RGB LED matrix"**.
+> Panels are the biggest variable in price and fluctuate on AliExpress. Search **"64x64 P3 HUB75E RGB LED matrix"**.
 
 ### Steps
 
-1. **Order parts** — use the BOM in `hardware/pcb/` for exact PCB components. Order panels, ESP32, and cables from AliExpress at the same time to save on shipping.
+1. **Order parts.** Use the BOM in `hardware/pcb/` for exact PCB components. Order panels, ESP32, and cables from AliExpress at the same time to save on shipping.
 
-2. **Get the PCB made** — upload the Gerber zip from `hardware/pcb/` to [JLCPCB](https://jlcpcb.com) or [PCBWay](https://pcbway.com). Standard 2-layer, 1.6mm, any colour. Minimum order is 5 pcs for ~$2.
+2. **Get the PCB made.** Upload the Gerber zip from `hardware/pcb/` to [JLCPCB](https://jlcpcb.com) or [PCBWay](https://pcbway.com). Standard 2-layer, 1.6mm, any colour. Minimum order is 5 pcs for ~$2.
 
-3. **Laser-cut the frame** — send the DXF files in `hardware/3d/` to a local laser cutting service or makerspace. 5mm MDF for the frame (paint it black), 5mm clear acrylic for the front panel.
+3. **Laser-cut the frame.** Send the DXF files in `hardware/3d/` to a local laser cutting service or makerspace. 5mm MDF for the frame (paint it black), 5mm clear acrylic for the front panel.
 
-4. **Solder the PCB** — solder all SMD components first, then connectors. The schematic and assembly drawing are in `hardware/pcb/`.
+4. **Solder the PCB.** Solder all SMD components first, then connectors. The schematic and assembly drawing are in `hardware/pcb/`.
 
-5. **Assemble** — chain the three LED panels together with ribbon cables. Connect power wires to each panel. Mount panels into the MDF frame using M4 bolts and nuts, then attach the acrylic front.
+5. **Assemble.** Chain the three LED panels together with ribbon cables. Connect power wires to each panel. Mount panels into the MDF frame using M4 bolts and nuts, then attach the acrylic front.
 
-6. **Flash and configure** — follow [Software Setup](#software-setup) below. First flash is via USB; all updates after that are OTA over WiFi.
+6. **Flash and configure.** Follow [Software Setup](#software-setup) below. First flash is via USB; all updates after that are OTA over WiFi.
 
 ---
 
@@ -119,7 +119,7 @@ Total cost is roughly **CHF 80–120** depending on where you source parts.
 |---|---|---|
 | LED Matrix Panels | 3 | 64×64px P3 HUB75E, chained (192×64px total) |
 | Microcontroller | 1 | Freenove ESP32-S3 WROOM (8MB Flash / 8MB PSRAM) |
-| Custom PCB | 1 | See `hardware/pcb/` — PCB components listed separately |
+| Custom PCB | 1 | See `hardware/pcb/` for schematics and BOM |
 | Power Supply | 1 | 5V 3A DC barrel jack |
 | HUB75E Ribbon Cables | 3 | 2×8 IDC, panel-to-panel and panel-to-PCB |
 | JST Power Wires | 3 | Custom length, custom terminated |
@@ -157,7 +157,7 @@ The custom PCB handles the connection between the ESP32-S3 and the HUB75E panels
 | OE | 12 |
 | CLK | 13 |
 
-> Double-check against your `Config.h` — pin assignments can vary.
+> Double-check against your `Config.h` as pin assignments can vary.
 
 ---
 
@@ -191,7 +191,7 @@ pio run -e freenove_esp32_s3_wroom -t upload
 
 ### 3. Connect to WiFi
 
-On first boot the display shows **"connect to: vbz-anzeige"**. Connect to that network (password: `123456`), open a browser — the captive portal opens automatically. Enter your home WiFi credentials and save.
+On first boot the display shows **"connect to: vbz-anzeige"**. Connect to that network (password: `123456`), open a browser and the captive portal opens automatically. Enter your home WiFi credentials and save.
 
 ### 4. Configure stations
 
@@ -250,14 +250,14 @@ Station search lets you look up a stop by name and fills the BPUIC ID automatica
 
 ## Night Mode
 
-Activates automatically between configured hours (default 22:00–06:00). All colors switch to amber and brightness drops to ~10%. Can be overridden manually via button or web interface — override clears at the next scheduled boundary.
+Activates automatically between configured hours (default 22:00–06:00). All colors switch to amber and brightness drops to ~10%. Can be overridden manually via button or web interface and the override clears at the next scheduled boundary.
 
 ---
 
 ## Troubleshooting
 
 **Display shows garbage / random pixels**
-Check ribbon cable orientation — HUB75E cables are not keyed. Try flipping the connector on the first panel.
+Check ribbon cable orientation. HUB75E cables are not keyed, try flipping the connector on the first panel.
 
 **Only the first panel lights up**
 The chain order matters. Panel 1 connects to the PCB, panel 2 connects to panel 1's output, panel 3 to panel 2's output.
@@ -269,7 +269,7 @@ Your API key is missing or wrong. Double-check `Config.h` and make sure you have
 Make sure the device is on the same network and the IP in `platformio.ini` is correct. The OTA password is `vbz1234`.
 
 **Display flickers or shows noise**
-Lower `BRIGHTNESS_FIXED` in `Config.h`. Some panels need `latch_blanking` tuned — see the comments in `Display.cpp`.
+Lower `BRIGHTNESS_FIXED` in `Config.h`. Some panels need `latch_blanking` tuned, see the comments in `Display.cpp`.
 
 **WiFi captive portal doesn't open**
 Navigate manually to `192.168.4.1` in your browser after connecting to the `vbz-anzeige` hotspot.
@@ -301,4 +301,4 @@ generate_texture.py Generates a P3 LED texture for renders
 
 ## Credits
 
-Built on top of [sschueller's vbz-fahrgastinformation](https://github.com/sschueller/vbz-fahrgastinformation), used under MIT license. The original concept, font, and data pipeline approach all originate from his work — this project wouldn't exist without it.
+Built on top of [sschueller's vbz-fahrgastinformation](https://github.com/sschueller/vbz-fahrgastinformation), used under MIT license. The original concept, font, and data pipeline approach all originate from his work. This project wouldn't exist without it.
